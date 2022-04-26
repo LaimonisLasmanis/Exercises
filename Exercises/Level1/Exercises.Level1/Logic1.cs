@@ -19,7 +19,35 @@ public class Logic1
     /// </summary>
     public bool CigarParty(int cigars, bool isWeekend)
     {
-        throw new NotImplementedException();
+
+        if (cigars >= 40 && (isWeekend || cigars <= 60))
+        {
+            return true;
+        }
+        return false;
+
+
+
+        // 1. ja cigaru skaits ir mazaks par 40, tad balliite nav izdevusies.
+        //if (cigars < 40) ;
+        //{
+        //    return false;
+        //}
+
+        //// 2. ja ir brīvdiena tad vienmēr ir izdevusies 
+        //if (isWeekend)
+        //{
+        //    return true;
+        //}
+
+        //// 3. Ja nav brīvdiena tad cigāru skaitam ir jābūt mazākam par 60
+        //if (cigars <= 60)
+        //{
+        //    return true;
+        //}
+
+
+        //return true;
     }
 
     /// <summary>
@@ -35,8 +63,24 @@ public class Logic1
     /// dateFashion(5, 5) → 1
     /// </summary>
     public int DateFashion(int you, int date)
+
     {
-        throw new NotImplementedException();
+        // ja kaut viens ir 2 vai mazak tad 0 ( ne )
+        if (you <= 2 || date <= 2)
+        {
+            return 0;
+        }
+
+        // ja kaut viens ir 8 vai vairak tad 2 ( ya ) 
+        if (you >= 8 || date >= 8)
+        {
+            return 2;
+        }
+
+        // citādi 1 ( maybe )
+
+
+        return 1;
     }
 
     /// <summary>
@@ -50,10 +94,44 @@ public class Logic1
     /// squirrelPlay(95, true) → true
     /// </summary>
     public bool SquirrelPlay(int temp, bool isSummer)
+
     {
-        throw new NotImplementedException();
+        // 1. Ja tempratūra ir starp 60 un 90 un nav vasara tad atgriežam true
+        int higherTemp = 90;
+
+        if (isSummer)
+        {
+            higherTemp = +10;
+
+        }
+        if (temp > 60 && temp <= higherTemp) ;
+        {
+            return true;
+        }
+
+        return false;
     }
 
+
+       //    if ((temp <= 90) && (temp >= 60))
+       //  {
+       //         return true;
+       //  }
+
+       //    // 2. Ja tempratūra ir starp 60 un 100 un ir vasara tad atgriežam true
+
+       // if ((temp >=60) && (temp <=100 && (isSummer)))
+       //   {
+       //        return true;
+       //    }    
+
+       //    // 3. Citādi atgriežam vērtību false
+
+       //   return false;
+       //}
+
+        
+    }
     /// <summary>
     /// You are driving a little too fast, and a police officer stops you. Write code to compute the
     /// result, encoded as an int value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or
