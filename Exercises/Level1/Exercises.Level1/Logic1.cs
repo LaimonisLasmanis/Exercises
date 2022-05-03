@@ -94,17 +94,16 @@ public class Logic1
     /// squirrelPlay(95, true) → true
     /// </summary>
     public bool SquirrelPlay(int temp, bool isSummer)
-
     {
-        // 1. Ja tempratūra ir starp 60 un 90 un nav vasara tad atgriežam true
+
         int higherTemp = 90;
 
         if (isSummer)
         {
-            higherTemp = +10;
-
+            higherTemp += 10;
         }
-        if (temp > 60 && temp <= higherTemp) ;
+
+        if (temp >= 60 && temp <= higherTemp)
         {
             return true;
         }
@@ -113,25 +112,27 @@ public class Logic1
     }
 
 
-       //    if ((temp <= 90) && (temp >= 60))
-       //  {
-       //         return true;
-       //  }
 
-       //    // 2. Ja tempratūra ir starp 60 un 100 un ir vasara tad atgriežam true
 
-       // if ((temp >=60) && (temp <=100 && (isSummer)))
-       //   {
-       //        return true;
-       //    }    
+    //    if ((temp <= 90) && (temp >= 60))
+    //  {
+    //         return true;
+    //  }
 
-       //    // 3. Citādi atgriežam vērtību false
+    //    // 2. Ja tempratūra ir starp 60 un 100 un ir vasara tad atgriežam true
 
-       //   return false;
-       //}
+    // if ((temp >=60) && (temp <=100 && (isSummer)))
+    //   {
+    //        return true;
+    //    }    
 
-        
-    }
+    //    // 3. Citādi atgriežam vērtību false
+
+    //   return false;
+    //}
+
+
+
     /// <summary>
     /// You are driving a little too fast, and a police officer stops you. Write code to compute the
     /// result, encoded as an int value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or
@@ -145,8 +146,26 @@ public class Logic1
     /// </summary>
     public int CaughtSpeeding(int speed, bool isBirthday)
     {
-        throw new NotImplementedException();
-    }
+
+        if (isBirthday)
+        {
+            speed -= 5;
+        }
+
+        if (speed <= 60)
+        {
+               return 0;
+        }
+        if (speed >= 81)
+        {
+              return 2;
+        }
+        else
+        {
+              return 1;
+        }
+            
+     }
 
     /// <summary>
     /// Given 2 ints, a and b, return their sum. However, sums in the range 10..19 inclusive, are
@@ -158,7 +177,14 @@ public class Logic1
     /// </summary>
     public int SortaSum(int a, int b)
     {
-        throw new NotImplementedException();
+        int summ = a + b;
+
+        if (summ >= 10 && summ <= 19) 
+        {
+            return 20;
+        }
+    
+        return summ;
     }
 
     /// <summary>
@@ -174,7 +200,24 @@ public class Logic1
     /// </summary>
     public string AlarmClock(int day, bool vacation)
     {
-        throw new NotImplementedException();
+        string early = "7:00";
+        string late = "10:00";
+        string off = "off";
+
+        if (day ==0 || day == 6)
+        {
+            if (vacation)
+            {
+                return off;
+            }
+            return late;
+       }  
+        if (vacation)
+        {
+            return late;
+        }
+        return early;
+        
     }
 
     /// <summary>
@@ -188,7 +231,25 @@ public class Logic1
     /// </summary>
     public bool Love6(int a, int b)
     {
-        throw new NotImplementedException();
+        if (a == 6 || b == 6)
+        {
+            return true;
+        }
+        // ----
+        if (a + b == 6)
+        {
+            return true;
+        }
+        //-----
+        int substracted = a - b;
+        int diff = Math.Abs(substracted);
+
+        if (diff == 6)
+        {
+            return true;
+        }
+        return false;
+            
     }
 
     /// <summary>
@@ -202,7 +263,24 @@ public class Logic1
     /// </summary>
     public bool In1To10(int n, bool outsideMode)
     {
-        throw new NotImplementedException();
+       if (n >= 1 && n <= 10)
+        {
+            if (!outsideMode)
+            {
+                return true;
+            }
+        }
+        if ((n <= 1) && outsideMode)
+        {
+            return true;
+        }
+        if ((n >= 10) && outsideMode)
+        {
+            return true;
+        }
+       
+        return false;
+
     }
 
     /// <summary>
@@ -215,7 +293,21 @@ public class Logic1
     /// </summary>
     public bool SpecialEleven(int n)
     {
-        throw new NotImplementedException();
+        if (n == (n % 11) && n == (n % 11 + 1))
+        {
+            return true;
+        }
+        if ((n % 11) == 0)
+        {
+            return true;
+        }
+        if (n % 11 == +1)
+        {
+            return true;
+        }
+
+        return false;
+       ;
     }
 
     /// <summary>
